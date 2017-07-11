@@ -1,5 +1,9 @@
 # Unity - NotNullAttribute
 
+Originally from https://github.com/redbluegames/unity-notnullattribute
+
+To include **NotNullAttribute** into your project, you can use `npm` method of unity package management described [here](https://github.com/minhhh/UBootstrap).
+
 The NotNullAttribute is a custom attribute that is used to support workflows in Unity that rely heavily on GameObject and MonoBehavior references. By applying the `[NotNull]` attribute to public Object fields on MonoBehaviours we can get alerted when a field is not properly wired up in the Editor. This allows our code to assume the field is not null.
 
 ![Screenshot of NotNullAttribute](http://i.imgur.com/dTNh2pl.png)

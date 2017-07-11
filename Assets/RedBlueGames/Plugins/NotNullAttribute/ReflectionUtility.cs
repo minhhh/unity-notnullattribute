@@ -17,28 +17,22 @@
         /// <param name="classToInspect">Class to inspect.</param>
         /// <param name="reflectionFlags">Reflection flags - supplying none uses default GetFields method.</param>
         /// <typeparam name="T">The Attribute type to search for.</typeparam>
-        public static List<FieldInfo> GetFieldsWithAttributeFromType<T>(
+        public static List<FieldInfo> GetFieldsWithAttributeFromType<T> (
             Type classToInspect,
             BindingFlags reflectionFlags = BindingFlags.Default)
         {
-            List<FieldInfo> fieldsWithAttribute = new List<FieldInfo>();
+            List<FieldInfo> fieldsWithAttribute = new List<FieldInfo> ();
             FieldInfo[] allFields;
-            if (reflectionFlags == BindingFlags.Default)
-            {
-                allFields = classToInspect.GetFields();
-            }
-            else
-            {
-                allFields = classToInspect.GetFields(reflectionFlags);
+            if (reflectionFlags == BindingFlags.Default) {
+                allFields = classToInspect.GetFields ();
+            } else {
+                allFields = classToInspect.GetFields (reflectionFlags);
             }
 
-            foreach (FieldInfo fieldInfo in allFields)
-            {
-                foreach (var attribute in Attribute.GetCustomAttributes(fieldInfo))
-                {
-                    if (attribute.GetType() == typeof(T))
-                    {
-                        fieldsWithAttribute.Add(fieldInfo);
+            foreach (FieldInfo fieldInfo in allFields) {
+                foreach (var attribute in Attribute.GetCustomAttributes(fieldInfo)) {
+                    if (attribute.GetType () == typeof(T)) {
+                        fieldsWithAttribute.Add (fieldInfo);
                         break;
                     }
                 }
